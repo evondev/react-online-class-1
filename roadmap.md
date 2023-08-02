@@ -32,9 +32,10 @@
 - Union
 - Intersection
 - Utility Types
-- Generic
 - Type - Interface
 - Extends
+- Generic
+- Mapped Types
 
 # Fundamentals
 
