@@ -39,18 +39,17 @@
 # Fundamentals
 
 - Learn JSX
-- How JSX works in React
-- Component vs Element
+- Các lưu ý khi đặt tên Component
+- Component
 - Render component conditionally
 - Functional component syntax
-- Display a list of elements in React and _Key_
+- Display a list of elements in React
 - Split different UIs in React
 - Props, default props, prop types
 - Install Sass & TailwindCSS
 - -> Button exercise
 - -> Avatar exercise
-
-# Events
+- Events
 
 # Hooks
 
@@ -94,6 +93,7 @@
 - Re-renders
 - useMemo, useCallback, React.memo
 - React reconciliation
+- How JSX works in React and Key
 
 # Testing
 
