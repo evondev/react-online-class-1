@@ -184,3 +184,12 @@ const todo3: TodoPreview2 = {
 const newStudent: Record<string, number> = {
   school: 100,
 };
+const roles = {
+  admin: "admin value",
+  mod: "mod value",
+  user: "user value",
+};
+const role = "admin";
+console.log(roles[role]);
+// object.key -> dot notation
+// object[key] -> bracket notation

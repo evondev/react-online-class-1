@@ -41,26 +41,29 @@
 
 - Learn JSX
 - Các lưu ý khi đặt tên Component
-- Component
-- Render component conditionally
-- Functional component syntax
-- Display a list of elements in React
-- Split different UIs in React
-- Props, default props, prop types
-- Install Sass & TailwindCSS
+- Các cách render component
+- Cách khai báo Function component
+- Hiển thị danh sách các phần tử(mảng)
+- Chia nhỏ giao diện và tối ưu cấu trúc dự án
+- Props, default props
+- ComponentProps trong Typescript
+- Tips giúp xác định các Type Typescript trong React
+- Cài đặt Sass và sử dụng Tailwind trong Sass như thế nào?
 - -> Button exercise
 - -> Avatar exercise
-- Events
+- Sự kiện - events
 
 # Hooks
 
 - Rules of hooks
+- Only call hooks at the top level of a function component. Don't call hooks inside loops, conditions, or nested functions.
+- Only call hooks from React function components. Don't call hooks from regular JavaScript functions
 
 ## useState
 
-## useRef
+## useReducer
 
-## Custom hooks
+## useRef
 
 ## useEffect
 
@@ -79,21 +82,20 @@
 - React composition
 - Render props pattern
 - Controlled vs uncontrolled components
-- useReducer
 - Custom hook
 
 # State Management
 
-- Redux
-- Redux Thunk
 - Redux toolkit
+- Redux Thunk
 - Zustand
 
 # Performance Optimization
 
-- Re-renders
+- Tất tần tật về re-renders
 - useMemo, useCallback, React.memo
 - React reconciliation
+- Tối ưu context
 - How JSX works in React and Key
 
 # Testing
