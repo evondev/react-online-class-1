@@ -45,10 +45,10 @@
 - Cách khai báo Function component
 - Hiển thị danh sách các phần tử(mảng)
 - Chia nhỏ giao diện và tối ưu cấu trúc dự án
-- Props, default props
-- ComponentProps trong Typescript
 - Tips giúp xác định các Type Typescript trong React
 - Cài đặt Sass và sử dụng Tailwind trong Sass như thế nào?
+- Props, default props
+- ComponentProps trong Typescript
 - -> Button exercise
 - -> Avatar exercise
 - Sự kiện - events
