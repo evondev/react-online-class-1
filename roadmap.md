@@ -46,7 +46,7 @@
 - Hiển thị danh sách các phần tử(mảng)
 - Chia nhỏ giao diện và tối ưu cấu trúc dự án
 - Cài đặt Sass và sử dụng Tailwind trong Sass như thế nào?
-- Props, _default props_, _children props_
+- Props, _default value props_, _children props_
 - _ComponentProps_ trong Typescript
 - Tips giúp xác định các Type Typescript trong React
 - Đặt tên, import, export trong React
