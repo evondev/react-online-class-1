@@ -59,6 +59,19 @@
 }
 ```
 
+- JIT Mode trong Tailwind -> w-[130px]
+- Nếu props có giá trị là `true` thì có thể viết rút gọn như sau
+
+```js
+<Button
+  isLoading
+</Button>
+```
+
+- Nếu thuộc tính(property, attributes) là 1 từ thì viết thường -> disabled
+- Nếu 1 từ trở lên thì dùng camelCase -> className, viewBox, stroke-line-cap -> strokeLineCap
+- Props children là 1 props đặc biệt ở trong React, children là những thứ nằm giữa >children< component hoặc element
+
 # NextJS 13
 
 - Mặc định là Server Components cho nên console.log sẽ in ra ở môi trường server(terminal)

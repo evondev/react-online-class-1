@@ -45,21 +45,31 @@
 - Cách khai báo Function component
 - Hiển thị danh sách các phần tử(mảng)
 - Chia nhỏ giao diện và tối ưu cấu trúc dự án
-- Tips giúp xác định các Type Typescript trong React
 - Cài đặt Sass và sử dụng Tailwind trong Sass như thế nào?
-- Props, default props
-- ComponentProps trong Typescript
+- Props, _default props_, _children props_
+- _ComponentProps_ trong Typescript
+- Tips giúp xác định các Type Typescript trong React
+- Đặt tên, import, export trong React
 - -> Button exercise
 - -> Avatar exercise
 - Sự kiện - events
 
 # Hooks
 
-- Rules of hooks
-- Only call hooks at the top level of a function component. Don't call hooks inside loops, conditions, or nested functions.
-- Only call hooks from React function components. Don't call hooks from regular JavaScript functions
+- Chỉ gọi hooks ở function component. Không được gọi hooks ở trong vòng lặp, điều kiện hay các hàm lồng nhau.
 
 ## useState
+
+- Array destructuring
+- Lưu ý đặt tên
+- Cú pháp
+- Sử dụng khi nào ?
+- Lưu ý khi sử dụng setState
+- Sử dụng state với object
+  -> Input
+  -> Dropdown
+  -> Toggle
+  -> Tab
 
 ## useReducer
 

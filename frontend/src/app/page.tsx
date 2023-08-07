@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/button/Button";
+import { IconLongArrowLeft, IconLongArrowRight } from "@/components/icons";
 import RenderLoading from "@/features/loading/RenderLoading";
 import { Fragment } from "react";
 const isRendered = false;
@@ -13,8 +14,11 @@ export default function Home() {
   const valuesGreaterThanTwo = numbers.filter((value) => value > 2);
   return (
     <Fragment>
-      <Button title="Frontend Development" variant="primary" size="lg"></Button>
-      <div className="hidden">
+      <Button className="h-14" variant="secondary" size="lg">
+        <span>Learn more</span>
+        <IconLongArrowRight></IconLongArrowRight>
+      </Button>
+      {/* <div className="hidden">
         {isRendered ? (
           <h3>This is h3</h3>
         ) : (
@@ -23,7 +27,7 @@ export default function Home() {
             <h2>Welcome to ReactJS course 2</h2>
           </>
         )}
-      </div>
+      </div> */}
       {/* <RenderLoading></RenderLoading> */}
       {/* {loading === "fetching" && <div>Loading</div>}
       {loading === "successfully" && <div>Successfully</div>}
