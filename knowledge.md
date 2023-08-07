@@ -71,6 +71,7 @@
 - Nếu thuộc tính(property, attributes) là 1 từ thì viết thường -> disabled
 - Nếu 1 từ trở lên thì dùng camelCase -> className, viewBox, stroke-line-cap -> strokeLineCap
 - Props children là 1 props đặc biệt ở trong React, children là những thứ nằm giữa >children< component hoặc element
+- props: JSX.IntrinsicElements["svg"] -> trả ra những props thuộc về element svg
 
 # NextJS 13
 

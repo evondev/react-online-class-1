@@ -22,7 +22,6 @@ type ButtonProps = {
   children?: React.ReactNode;
 };
 function Button(props: ButtonProps) {
-  if (!props) return null;
   const { variant, size, isLoading, className, children } = props;
   const child = isLoading ? <Spinner size="sm"></Spinner> : children;
   const baseClassName =

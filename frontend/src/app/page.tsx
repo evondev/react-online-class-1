@@ -1,7 +1,7 @@
 "use client";
-import Button from "@/components/button/Button";
-import { IconLongArrowLeft, IconLongArrowRight } from "@/components/icons";
-import RenderLoading from "@/features/loading/RenderLoading";
+import { Avatar } from "@/components/avatar";
+import { Button } from "@/components/button";
+import { IconLongArrowRight } from "@/components/icons";
 import { Fragment } from "react";
 const isRendered = false;
 const numbers = [1, 2, 3, 4, 5];
@@ -14,10 +14,13 @@ export default function Home() {
   const valuesGreaterThanTwo = numbers.filter((value) => value > 2);
   return (
     <Fragment>
-      <Button className="h-14" variant="secondary" size="lg">
-        <span>Learn more</span>
-        <IconLongArrowRight></IconLongArrowRight>
-      </Button>
+      <div className="flex flex-wrap gap-10">
+        <Button className="h-14" variant="secondary" size="lg">
+          <span>Learn more</span>
+          <IconLongArrowRight></IconLongArrowRight>
+        </Button>
+        <Avatar title="Evondev"></Avatar>
+      </div>
       {/* <div className="hidden">
         {isRendered ? (
           <h3>This is h3</h3>
