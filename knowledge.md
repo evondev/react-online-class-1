@@ -59,6 +59,42 @@
 }
 ```
 
+- JIT Mode trong Tailwind -> w-[130px]
+- Nếu props có giá trị là `true` thì có thể viết rút gọn như sau
+
+```js
+<Button
+  isLoading
+</Button>
+```
+
+- Nếu thuộc tính(property, attributes) là 1 từ thì viết thường -> disabled
+- Nếu 1 từ trở lên thì dùng camelCase -> className, viewBox, stroke-line-cap -> strokeLineCap
+- Props children là 1 props đặc biệt ở trong React, children là những thứ nằm giữa >children< component hoặc element
+- props: JSX.IntrinsicElements["svg"] -> trả ra những props thuộc về element svg
+- onEvent -> onClick, onChange, onKeydown, onMousemove
+- 2 trường hợp sử dụng event callback
+
+```js
+  onClick={() => {
+    console.log("Danger clicked1");
+    console.log("Danger clicked2");
+  }}
+  onClick={handleClick}
+  onClick={() => handleDangerClick(100)}
+
+```
+
+- unnecessary re-renders
+- Re-renders
+- State
+
+## useState
+
+- const [value, setValue] = useState(true);
+- const [isRendering, setIsRendering] = useState(true);
+-
+
 # NextJS 13
 
 - Mặc định là Server Components cho nên console.log sẽ in ra ở môi trường server(terminal)

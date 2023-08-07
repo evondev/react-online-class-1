@@ -1,45 +1,34 @@
 "use client";
-import Button from "@/components/button/Button";
-import RenderLoading from "@/features/loading/RenderLoading";
+import { Avatar } from "@/components/avatar";
+import { Button } from "@/components/button";
+import { IconLongArrowRight, IconUser } from "@/components/icons";
+import { Tab } from "@/components/tab";
 import { Fragment } from "react";
-const isRendered = false;
-const numbers = [1, 2, 3, 4, 5];
+let a = 100;
 export default function Home() {
-  // if (!isRendered) {
-  //   console.log("renderd");
-  //   return null;
-  // }
-
-  const valuesGreaterThanTwo = numbers.filter((value) => value > 2);
+  const handleDangerClick = (value: number) => {
+    console.log("danger clicked");
+  };
   return (
     <Fragment>
-      <Button title="Frontend Development" variant="primary" size="lg"></Button>
-      <div className="hidden">
-        {isRendered ? (
-          <h3>This is h3</h3>
-        ) : (
-          <>
-            <h1>Welcome to ReactJS course 1</h1>
-            <h2>Welcome to ReactJS course 2</h2>
-          </>
-        )}
+      <div className="flex flex-wrap items-start gap-10">
+        <Button className="h-14" variant="secondary" size="lg">
+          <span>Learn more</span>
+          <IconLongArrowRight></IconLongArrowRight>
+        </Button>
+        <Button
+          onClick={() => handleDangerClick(a)}
+          type="button"
+          className="h-14"
+          variant="danger"
+          size="sm"
+        >
+          <span>Danger mode</span>
+          <IconUser></IconUser>
+        </Button>
+        <Avatar title="Evondev"></Avatar>
+        <Tab></Tab>
       </div>
-      {/* <RenderLoading></RenderLoading> */}
-      {/* {loading === "fetching" && <div>Loading</div>}
-      {loading === "successfully" && <div>Successfully</div>}
-      {loading === "error" && <div>Error</div>} */}
-      {/* {loading === "fetching" ? (
-        <div>Loading</div>
-      ) : loading === "successfull" ? (
-        <div>Sucessfull</div>
-      ) : loading === "error" ? (
-        <div>Error</div>
-      ) : (
-        <></>
-      )} */}
-      {/* {valuesGreaterThanTwo.map((value: number, index: number) => {
-        return <div key={index}>{value}</div>;
-      })} */}
     </Fragment>
   );
 }
