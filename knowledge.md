@@ -93,7 +93,20 @@
 
 - const [value, setValue] = useState(true);
 - const [isRendering, setIsRendering] = useState(true);
+- Khi sử dụng setState mà cần phụ thuộc vào giá trị mới nhất của state trước đó thì truyền vào callback như sau
+- setActive(prev => !prev)
+- Để giải quyết những đoạn code sử dụng useState nhiều lần như trong bài tập ToggleV2 thì có thể dùng custom hook
 -
+
+### Tab Advanced
+
+- Tạo 1 component Tab và có những props sau
+- props `children`: Dùng để chứa tab content, nội dung của từng tab tương ứng
+- props `items`: Là 1 mảng chứa các tab item, các tab chúng ta sẽ nhấn vào ví dụ ["Label", "Label1", "Label2"], dùng phương thức `map` cho props `items` để hiển thị danh sách các tab ra ngoài giao diện
+- Khi chúng ta dùng map cho props `items` thì `tab`(từng phần tử trong mảng) chúng ta sẽ không biết được nó sẽ có gì ? Có thể là 1 object, có thể là number cũng có thể là chuỗi
+- props `renderItems(value: tab)` là 1 function có đầu vào là phần tử của items tức là `tab` ở trên, nó sẽ trả ra type là React.ReactNode
+- Generic sẽ giúp chúng ta giải quyết vấn đề trên
+- Generic Type trong Typescript giúp giải quyết những type mà chúng ta không biết nó sẽ như thế nào?
 
 # NextJS 13
 

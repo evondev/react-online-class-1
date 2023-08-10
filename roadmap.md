@@ -66,10 +66,10 @@
 - Sử dụng khi nào ?
 - Lưu ý khi sử dụng setState
 - Sử dụng state với object
+  -> Tab
+  -> Toggle
   -> Input
   -> Dropdown
-  -> Toggle
-  -> Tab
 
 ## useReducer
 
