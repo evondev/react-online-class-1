@@ -1,7 +1,11 @@
 "use client";
 import { Avatar } from "@/components/avatar";
 import { Button } from "@/components/button";
+import Dropdown from "@/components/dropdown/Dropdown";
+import DropdownComplex from "@/components/dropdown/DropdownComplex";
 import { IconLongArrowRight, IconUser } from "@/components/icons";
+import InputAdvanced from "@/components/input/InputAdvanced";
+import InputPasswordToggle from "@/components/input/InputPasswordToggle";
 import { TabAdvanced } from "@/components/tab";
 import Toggle from "@/components/toggle/Toggle";
 import ToggleV2 from "@/components/toggle/ToggleV2";
@@ -40,6 +44,9 @@ export default function Home() {
   // const handleToggleButton3 = () => {
   //   setIsShowButton3((prev) => !prev);
   // };
+  const [inputPasswordType, setInputPasswordType] = useState<
+    "text" | "password"
+  >("password");
   return (
     <Fragment>
       <div className="flex flex-wrap items-start gap-10">
@@ -83,6 +90,32 @@ export default function Home() {
           onClick={handleToggleButton}
         ></ToggleV2>
         {isShowButton && <Button variant="primary">Github copilot</Button>}
+        <DropdownComplex
+          items={[
+            {
+              name: "Evondev",
+              avatar: "https://avatars.githubusercontent.com/u/25105806?v=4",
+            },
+          ]}
+          selectedText={"Select member"}
+        ></DropdownComplex>
+        <InputPasswordToggle
+          placeholder="Enter your password"
+          className="w-[300px]"
+          type="password"
+          showIcon
+        ></InputPasswordToggle>
+        <InputAdvanced
+          placeholder="Enter your password"
+          className="w-[300px]"
+          type="text"
+          // onIconClick={() => {
+          //   setInputPasswordType((prev) =>
+          //     prev === "password" ? "text" : "password"
+          //   );
+          // }}
+          // togglePassword
+        ></InputAdvanced>
       </div>
     </Fragment>
   );
