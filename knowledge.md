@@ -96,7 +96,47 @@
 - Khi sử dụng setState mà cần phụ thuộc vào giá trị mới nhất của state trước đó thì truyền vào callback như sau
 - setActive(prev => !prev)
 - Để giải quyết những đoạn code sử dụng useState nhiều lần như trong bài tập ToggleV2 thì có thể dùng custom hook
--
+- Khi sử dụng sự kiện onChange cho input thì để truy xuất giá trị chúng ta dùng cú pháp e.target.value
+
+```typescript
+const fn = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value;
+};
+```
+
+- Hook useState sử dụng gọn gàng hơn
+- Hook useState khó debug khi làm việc với object
+
+## useReducer
+
+- Cú pháp
+
+```typescript
+const [state, dispatch] = useReducer(reducer, initialArg, init?)
+```
+
+- Code sẽ dài hơn so với useState
+- Dễ dàng debug hơn so với useState
+- Logic của reducer được xử lý bên ngoài component
+- Khi sử dụng `dispatch(value)` trong hook useReducer thì value truyền vào sẽ là bất kỳ giá trị nào(tùy thuộc vào logic của bài toán)
+- Giá trị(value) ở trong `dispatch(value)` là action trong function reducer
+- Action thông thường mọi người hay dùng cấu trúc là object với 2 properties phổ biến là `type` và `payload`
+- Không được thay đổi giá trị trực tiếp từ state gốc như thế này
+
+```typescript
+state.username = action.payload.value;
+```
+
+- Thay vào đó thì nên clone từ state gốc bằng việc sử dụng spread operator
+- Khi sử dụng dispatch thì nó sẽ chạy vào reducer
+- Reducer chỉ chấp 2 arguments là state và action
+- State là state gốc(chính là initialArg)
+- Action trong reducer chính là giá trị được truyền vào từ `dispatch`
+
+```typescript
+const newState = { ...state };
+const newState = JSON.parse(JSON.stringify(state));
+```
 
 ### Tab Advanced
 
