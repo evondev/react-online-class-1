@@ -1,20 +1,18 @@
 "use client";
-import DropdownReducer from "@/components/dropdown/DropdownReducer";
-import InputPasswordToggleReducer from "@/components/input/InputPasswordToggleReducer";
-import Counter from "@/features/Counter";
-import LoginForm from "@/features/auth/LoginForm";
-import LoginFormReducer from "@/features/auth/LoginFormWithReducer";
-import React from "react";
+import HackerNews from "@/features/HackerNews";
+import TimerComponent from "@/features/TimerComponent";
+import React, { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function home() {
+function Home() {
   return (
     <div>
-      {/* <LoginForm></LoginForm> */}
-      {/* <LoginFormReducer></LoginFormReducer> */}
-      <Counter></Counter>
-      <InputPasswordToggleReducer></InputPasswordToggleReducer>
+      <HackerNews></HackerNews>
+      {/* <TimerComponent></TimerComponent> */}
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
 
-export default home;
+export default Home;
