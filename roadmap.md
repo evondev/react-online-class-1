@@ -1,4 +1,4 @@
-# Setup
+# Setup ✅
 
 - Welcome
 - Install NodeJS - GitBash
@@ -10,7 +10,7 @@
 - Thành quả sau khi hoàn thành
 - Cách học hiệu quả nên biết
 
-# Ôn lại Javascript
+# Ôn lại Javascript ✅
 
 - Object
 - Array
@@ -20,7 +20,7 @@
 - Optional chaining
 - Ternary operator
 
-# Typescript cơ bản
+# Typescript cơ bản ✅
 
 - Data types
 - Any
@@ -37,7 +37,7 @@
 - Generic
 - Mapped Types
 
-# Fundamentals
+# Fundamentals ✅
 
 - Learn JSX
 - Các lưu ý khi đặt tên Component
@@ -58,7 +58,7 @@
 
 - Chỉ gọi hooks ở function component. Không được gọi hooks ở trong vòng lặp, điều kiện hay các hàm lồng nhau.
 
-## useState
+## useState ✅
 
 - Array destructuring
 - Lưu ý đặt tên
@@ -71,9 +71,7 @@
   -> Input
   -> Dropdown
 
-## useReducer
-
-## useRef
+## useReducer ✅
 
 ## useEffect
 
@@ -81,6 +79,15 @@
 - Optimize fetching
 - The problem of fetching in _useEffect_
 - -> _React Query_
+
+## useRef
+
+## Custom Hook
+
+# Form
+
+- React hook form
+- Controlled vs uncontrolled components
 
 # Component Patterns
 
@@ -91,8 +98,6 @@
 - Context
 - React composition
 - Render props pattern
-- Controlled vs uncontrolled components
-- Custom hook
 
 # State Management
 

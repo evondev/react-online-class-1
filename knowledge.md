@@ -138,6 +138,8 @@ const newState = { ...state };
 const newState = JSON.parse(JSON.stringify(state));
 ```
 
+- Dấu chấm than sau biến trong Typescript `action.payload!` có nghĩa là biến đó không thể là null hoặc undefined
+
 ### Tab Advanced
 
 - Tạo 1 component Tab và có những props sau
