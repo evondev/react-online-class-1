@@ -1,4 +1,6 @@
 "use client";
+import DropdownReducer from "@/components/dropdown/DropdownReducer";
+import InputPasswordToggleReducer from "@/components/input/InputPasswordToggleReducer";
 import Counter from "@/features/Counter";
 import LoginForm from "@/features/auth/LoginForm";
 import LoginFormReducer from "@/features/auth/LoginFormWithReducer";
@@ -10,6 +12,7 @@ function home() {
       {/* <LoginForm></LoginForm> */}
       {/* <LoginFormReducer></LoginFormReducer> */}
       <Counter></Counter>
+      <InputPasswordToggleReducer></InputPasswordToggleReducer>
     </div>
   );
 }
