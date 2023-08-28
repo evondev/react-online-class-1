@@ -161,7 +161,7 @@ useEffect(() => {
   -> [value,...] nếu value của dependencies thay đổi thì useEffect có sử dụng value depencies đó mới chạy và nếu có state thay đổi thì component sẽ re-render
 - 1 số thứ cần cleanup trong useEffect: setTimeout, setInterval, eventListener, fetch(abortController),...
 - SWR
-- React Query
+  -> React Query: Pagination, Load more
 
 ### Tab Advanced
 

@@ -1,7 +1,7 @@
+import { QueryClient } from "@tanstack/react-query";
 import "./globals.scss";
 import type { Metadata } from "next";
 import { Inter, Epilogue } from "next/font/google";
-
 const inter = Epilogue({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
