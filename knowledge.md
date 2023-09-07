@@ -163,6 +163,21 @@ useEffect(() => {
 - SWR
   -> React Query: Pagination, Load more
 
+# useRef
+
+- Là 1 object có thuộc tính `current`
+- ref không phải là props
+- NodeJS.Timeout sử dụng cho khai báo Typescript type cho setTimeout hoặc setInterval
+- ref dùng để lưu trữ giá trị hoặc tương tác với DOM, tất cả đều thông qua thuộc tính current của ref
+- Tên ref có thể đặt tùy ý tùy vào mục đích như inputRef, buttonRef, listRef...
+- Khi sử dụng ref vẫn có thể viết query selector như bình thường
+- Giá trị của ref không thay đổi trong quá trình component render
+- Khi sử dụng ref cho component thì phải dùng forwardRef
+
+```ts
+const MyComponent = forwardRef(function MyComponent(props, ref) {});
+```
+
 ### Tab Advanced
 
 - Tạo 1 component Tab và có những props sau
