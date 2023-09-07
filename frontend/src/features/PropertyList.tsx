@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import classNames from "classnames";
 import React, { useState } from "react";
-const ITEMS_PER_PAGE = 1;
+const ITEMS_PER_PAGE = 2;
 function PropertyList() {
   const [currentPage, setCurrentPage] = useState(1);
   const { data } = useQuery({

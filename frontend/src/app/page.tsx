@@ -2,6 +2,7 @@
 import HackerNews from "@/features/HackerNews";
 import HackerNewsQuery from "@/features/HackerNewsQuery";
 import PropertyList from "@/features/PropertyList";
+import PropertyListMore from "@/features/PropertyListMore";
 import TimerComponent from "@/features/TimerComponent";
 import UserList from "@/features/UserList";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,7 +19,7 @@ function Home() {
       {/* <HackerNewsQuery></HackerNewsQuery> */}
       {/* <TimerComponent></TimerComponent> */}
       {/* <UserList></UserList> */}
-      <PropertyList></PropertyList>
+      <PropertyListMore></PropertyListMore>
       <ToastContainer></ToastContainer>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
