@@ -1,1 +1,38 @@
-# Buổi 1
+- Setup NextJS13 Project
+- Typescript basic
+- React fundamentals
+- useState
+- useEffect
+- useRef
+- useReducer
+- useMemo
+- useCallback
+- useLayoutEffect
+- Custom hook
+- Form
+- React composition
+- Compound component
+- Context
+- Props drilling
+- Render props
+- High Order Component
+- Redux
+- Redux toolkit
+- Redux thunk
+- Redux saga
+- Zustand
+- React reconciliation
+- React performance
+- React-testing-library
+- React portal
+- React styles
+- MUI
+- AntD
+- Next/head
+- Next/image
+- Next/link
+- Next/document
+- Next/app
+- Next/font
+- Server component
+- Client component

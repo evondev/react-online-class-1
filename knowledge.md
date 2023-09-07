@@ -140,6 +140,29 @@ const newState = JSON.parse(JSON.stringify(state));
 
 - Dấu chấm than sau biến trong Typescript `action.payload!` có nghĩa là biến đó không thể là null hoặc undefined
 
+# useEffect
+
+- Giúp chúng ta sử dụng side effects: (DOM, API, sessionStorage, localStorage) trong React
+
+```typescript
+useEffect(() => {
+  // code
+  return () => {
+    // cleanup
+    // unmounted component
+  };
+}, dependencies);
+```
+
+- useEffect sẽ luôn chạy 1 lần rồi sau đó dựa vào dependencies
+- Dependencies có 3 trường hợp chính là
+  -> [] nó sẽ chạy vào useEffect 1 lần sau khi component đã render xong
+  -> Nếu không để gì cả, thì nó sẽ luôn chạy sau mỗi lần component re-render
+  -> [value,...] nếu value của dependencies thay đổi thì useEffect có sử dụng value depencies đó mới chạy và nếu có state thay đổi thì component sẽ re-render
+- 1 số thứ cần cleanup trong useEffect: setTimeout, setInterval, eventListener, fetch(abortController),...
+- SWR
+  -> React Query: Pagination, Load more
+
 ### Tab Advanced
 
 - Tạo 1 component Tab và có những props sau

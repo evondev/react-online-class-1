@@ -73,7 +73,7 @@
 
 ## useReducer ✅
 
-## useEffect
+## useEffect ✅
 
 - Simple fetching
 - Optimize fetching
