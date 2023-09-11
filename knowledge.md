@@ -178,8 +178,15 @@ useEffect(() => {
 const MyComponent = forwardRef(function MyComponent(props, ref) {});
 ```
 
-# custom hook
+# Custom hook
 
 - Tức là hook do chúng ta tự tạo ra với mục đích tùy logic
 - Quy chuẩn đặt tên của custom hook bắt buộc phải bắt đầu bằng từ use ví dụ `useToggle` `useOnChange`...
 - Thường viết custom hook để tách logic ra khỏi component cho dễ quản lý
+- Khi sử dụng custom hook có state thì vẫn làm cho component re-render như bình thường
+
+# React hook form
+
+- Là 1 thư viện để làm việc với form
+- Uncontrolled component: Là component chỉ sử dụng state của riêng nó và không nhận props từ component cha, không chịu sự chi phối từ component cha
+- Controlled component: Là component có sử dụng props từ component cha, do component cha quản lý
