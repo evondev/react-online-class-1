@@ -163,16 +163,23 @@ useEffect(() => {
 - SWR
   -> React Query: Pagination, Load more
 
-### Tab Advanced
+# useRef
 
-- Tạo 1 component Tab và có những props sau
-- props `children`: Dùng để chứa tab content, nội dung của từng tab tương ứng
-- props `items`: Là 1 mảng chứa các tab item, các tab chúng ta sẽ nhấn vào ví dụ ["Label", "Label1", "Label2"], dùng phương thức `map` cho props `items` để hiển thị danh sách các tab ra ngoài giao diện
-- Khi chúng ta dùng map cho props `items` thì `tab`(từng phần tử trong mảng) chúng ta sẽ không biết được nó sẽ có gì ? Có thể là 1 object, có thể là number cũng có thể là chuỗi
-- props `renderItems(value: tab)` là 1 function có đầu vào là phần tử của items tức là `tab` ở trên, nó sẽ trả ra type là React.ReactNode
-- Generic sẽ giúp chúng ta giải quyết vấn đề trên
-- Generic Type trong Typescript giúp giải quyết những type mà chúng ta không biết nó sẽ như thế nào?
+- Là 1 object có thuộc tính `current`
+- ref không phải là props
+- NodeJS.Timeout sử dụng cho khai báo Typescript type cho setTimeout hoặc setInterval
+- ref dùng để lưu trữ giá trị hoặc tương tác với DOM, tất cả đều thông qua thuộc tính current của ref
+- Tên ref có thể đặt tùy ý tùy vào mục đích như inputRef, buttonRef, listRef...
+- Khi sử dụng ref vẫn có thể viết query selector như bình thường
+- Giá trị của ref không thay đổi trong quá trình component render
+- Khi sử dụng ref cho component thì phải dùng forwardRef
 
-# NextJS 13
+```ts
+const MyComponent = forwardRef(function MyComponent(props, ref) {});
+```
 
-- Mặc định là Server Components cho nên console.log sẽ in ra ở môi trường server(terminal)
+# custom hook
+
+- Tức là hook do chúng ta tự tạo ra với mục đích tùy logic
+- Quy chuẩn đặt tên của custom hook bắt buộc phải bắt đầu bằng từ use ví dụ `useToggle` `useOnChange`...
+- Thường viết custom hook để tách logic ra khỏi component cho dễ quản lý
