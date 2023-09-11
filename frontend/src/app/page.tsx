@@ -160,7 +160,6 @@ const Input = React.forwardRef(function Input(
   props: any,
   ref: React.LegacyRef<HTMLInputElement> | undefined
 ) {
-  console.log(props);
   return (
     <input
       type="text"
