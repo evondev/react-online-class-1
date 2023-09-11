@@ -1,10 +1,10 @@
-- Setup NextJS13 Project
-- Typescript basic
-- React fundamentals
-- useState
-- useEffect
-- useRef
-- useReducer
+- Setup NextJS13 Project ✅
+- Typescript basic ✅
+- React fundamentals ✅
+- useState ✅
+- useEffect ✅
+- useRef ✅
+- useReducer ✅
 - useMemo
 - useCallback
 - useLayoutEffect

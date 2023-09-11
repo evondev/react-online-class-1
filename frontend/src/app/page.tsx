@@ -78,4 +78,20 @@ function Home() {
   );
 }
 
+
+const Input = React.forwardRef(function Input(
+  props: any,
+  ref: React.LegacyRef<HTMLInputElement> | undefined
+) {
+  return (
+    <input
+      type="text"
+      placeholder="Default placeholder"
+      className="p-3 border border-gray-200 rounded-lg outline-none focus:border-blue-500"
+      ref={ref}
+      defaultValue={props.value}
+      onChange={(e) => props.onChange(e.target.value)}
+    />
+  );
+});
 export default Home;
