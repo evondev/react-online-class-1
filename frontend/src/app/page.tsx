@@ -1,176 +1,81 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
+import Toggle from "@/components/toggle/Toggle";
+import { useDebounce, useInputChange, useToggle } from "@/hooks";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
 function Home() {
-  const ref = useRef<HTMLInputElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    // const input = document.querySelector(".input") as HTMLInputElement;
-    // if (input) {
-    //   input.focus();
-    // }
-    if (ref.current) {
-      ref.current.focus();
-    }
-  }, []);
-  const listRef = useRef<HTMLUListElement>(null);
-  const scrollToIndex = (index: number) => {
-    const listNode = listRef.current;
-    // This line assumes a particular DOM structure:
-    const imgNode = listNode?.querySelectorAll("li > img")[
-      index
-    ] as HTMLImageElement;
-    imgNode?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
+  const { value, toggleValue } = useToggle(true);
+  const { value: filter, toggleValue: toggleFilter } = useToggle(false);
+  const { value: displayPost, toggleValue: toggleDisplayPost } =
+    useToggle(false);
+  const [formValues, setFormValues] = useState({
+    emailAddress: "",
+  });
+  const handleInputChange = useInputChange(formValues, setFormValues);
+  const [query, setQuery] = useState("");
+  const handleChangeQuery = (e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
   };
-  const counterRef = useRef<HTMLSpanElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const [timer, setTimer] = useState<number>(10);
-
-  const startTimer = () => {
-    intervalRef.current = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-    }, 1000);
-  };
-
-  const stopTimer = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [inputVal, setInputVal] = useState("");
+  const queryDebounce = useDebounce<string>(query, 5000);
   return (
     <div>
-      {/* <div className="aspect-video h-[500px]">
-        <video
-          src="/bai-4-array-type.mp4"
-          controls
-          ref={videoRef}
-          className="object-fill w-full h-full"
-        ></video>
-      </div>
-      <button
-        onClick={() => {
-          if (videoRef.current) {
-            videoRef.current.play();
-          }
-        }}
-      >
-        Play
-      </button>
-      <button
-        onClick={() => {
-          if (videoRef.current) {
-            videoRef.current.pause();
-          }
-        }}
-      >
-        Pause
-      </button> */}
-      <input
-        type="text"
-        placeholder="Enter your content"
-        className="w-[300px] border border-slate-200 rounded-lg py-3 px-5 outline-none  bg-transparent input"
-        ref={ref}
-      />
-      <div
-        aria-label="counter"
-        className="inline-flex overflow-hidden border rounded-lg border-slate-200"
-      >
-        <button className="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-slate-100">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M20 12H4"
-            />
-          </svg>
-        </button>
-        <span
-          className="flex items-center justify-center w-20 h-10 text-2xl font-bold"
-          ref={counterRef}
+      <Toggle value={value} onClick={toggleValue}></Toggle> Status
+      <Toggle value={filter} onClick={toggleFilter}></Toggle> Filter
+      <button onClick={() => toggleDisplayPost(true)}>Show post</button>
+      {displayPost && <div>Your post here</div>}
+      <div className="flex items-center max-w-lg p-3 m-5 bg-gray-100 rounded-lg gap-x-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="flex-shrink-0 w-6 h-6 text-blue-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
         >
-          0
-        </span>
-        <button
-          className="flex items-center justify-center w-10 h-10 cursor-pointer hover:bg-slate-100"
-          // onClick={() => {
-          //   if (counterRef.current && counterRef.current.textContent) {
-          //     counterRef.current.textContent =
-          //       parseInt(counterRef.current.textContent) + 1;
-          //   }
-          // }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-            />
-          </svg>
-        </button>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
+        </svg>
+        <div className="w-full">
+          <input
+            type="text"
+            className="w-full text-sm font-medium bg-transparent outline-none"
+            placeholder="Your Email"
+            value={formValues.emailAddress}
+            name={"emailAddress"}
+            onChange={handleInputChange}
+          />
+        </div>
       </div>
-      <div>Timer: {timer}</div>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
-      <Input ref={inputRef} value={inputVal} onChange={setInputVal}></Input>
-      <button
-        onClick={() => {
-          if (inputRef.current) {
-            inputRef.current.focus();
-          }
-        }}
-      >
-        Focus
-      </button>
-      <button
-        onClick={() => {
-          setInputVal("");
-          if (inputRef.current) {
-            inputRef.current.value = "";
-          }
-        }}
-      >
-        Clear input
-      </button>
+      <div className="flex items-center max-w-lg p-3 m-5 bg-gray-100 rounded-lg gap-x-3">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="flex-shrink-0 w-6 h-6 text-blue-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+          />
+        </svg>
+        <div className="w-full">
+          <input
+            type="text"
+            className="w-full text-sm font-medium bg-transparent outline-none"
+            placeholder="Enter your query"
+            name={"query"}
+            onChange={handleChangeQuery}
+          />
+        </div>
+      </div>
     </div>
   );
 }
-
-const Input = React.forwardRef(function Input(
-  props: any,
-  ref: React.LegacyRef<HTMLInputElement> | undefined
-) {
-  console.log(props);
-  return (
-    <input
-      type="text"
-      placeholder="Default placeholder"
-      className="p-3 border border-gray-200 rounded-lg outline-none focus:border-blue-500"
-      ref={ref}
-      defaultValue={props.value}
-      onChange={(e) => props.onChange(e.target.value)}
-    />
-  );
-});
 
 export default Home;
