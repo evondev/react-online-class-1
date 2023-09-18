@@ -7,84 +7,25 @@ import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import SignInForm from "@/features/SignInForm";
 const ModalUncontrolledMemo = memo(ModalUncontrolled);
-type Inputs = {
-  name: string;
-  email: string;
-  password: string;
-};
-const schema = yup
-  .object({
-    name: yup.string().required(),
-    email: yup.string().email("Email is invalid").required(),
-    password: yup.string().min(5, "only 5").required(),
-  })
-  .required();
+// type Inputs = {
+//   name: string;
+//   email: string;
+//   password: string;
+// };
+// const schema = yup
+//   .object({
+//     name: yup.string().required(),
+//     email: yup.string().email("Email is invalid").required(),
+//     password: yup.string().min(5, "only 5").required(),
+//   })
+//   .required();
 function Home() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  // const [formValues, setFormValues] = useState({
-  //   name,
-  //   email,
-  //   phone,
-  //   age,
-  //   school,
-  // });
-  const {
-    register,
-    handleSubmit,
-    watch,
-    control,
-    formState: { errors },
-  } = useForm<Inputs>({
-    resolver: yupResolver(schema),
-  });
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-  console.log("file: page.tsx:39 ~ Home ~ errors:", errors);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col w-full max-w-xl gap-5 mx-auto">
-        <input
-          type="text"
-          // value={name}
-          // onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          //   setName(e.target.value)
-          // }
-          className="px-5 py-3 bg-transparent border rounded-lg outline-none border-slate-200"
-          placeholder="Enter your name"
-          {...register("name")}
-          // name="name"
-        />
-        <input
-          type="email"
-          // value={email}
-          // onChange={(e: ChangeEvent<HTMLInputElement>) =>
-          //   setEmail(e.target.value)
-          // }
-          className="px-5 py-3 bg-transparent border rounded-lg outline-none border-slate-200"
-          placeholder="Enter your email"
-          {...register("email")}
-
-          // name="email"
-        />
-        {/* {errors.email && <div>Email is required</div>} */}
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => (
-            <InputControlled
-              placeholder="Enter your password"
-              type="password"
-              {...field}
-            />
-          )}
-        />
-        <Button variant="primary" type="submit" size="lg">
-          Login
-        </Button>
-      </div>
-      <ModalUncontrolledMemo></ModalUncontrolledMemo>
-    </form>
+    <>
+      <SignInForm></SignInForm>
+    </>
   );
 }
 
