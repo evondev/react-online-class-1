@@ -1,6 +1,10 @@
-import React, { ComponentProps, forwardRef, useState } from "react";
+import React, { ComponentProps, LegacyRef, forwardRef, useState } from "react";
 import {
   Controller,
+  DeepMap,
+  FieldError,
+  Path,
+  RegisterOptions,
   SubmitHandler,
   UseFormRegister,
   useForm,
@@ -8,6 +12,7 @@ import {
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import classNames from "classnames";
+import { get } from "lodash";
 type Inputs = {
   email: string;
   password: string;
@@ -162,13 +167,36 @@ function SignInForm() {
     </div>
   );
 }
-// type InputProps = {
-//   name: keyof FormData;
-//   register: UseFormRegister<FormData>;
-// } & ComponentProps<"input">;
-// function Input({ register, name, ...rest }: InputProps) {
-//   return <input {...rest} {...register(name)} />;
-// }
+type FormInputProps<TFormValues extends Record<string, any>> = {
+  name: Path<TFormValues>;
+  rules?: RegisterOptions;
+  register?: UseFormRegister<TFormValues>;
+  errors?: Partial<DeepMap<TFormValues, FieldError>>;
+} & Omit<InputProps2, "name">;
+type InputProps2 = {} & ComponentProps<"input">;
+const FormInput = <TFormValues extends Record<string, unknown>>({
+  name,
+  register,
+  rules,
+  errors,
+  ref,
+  ...props
+}: FormInputProps<TFormValues>): React.ReactNode => {
+  const errorMessages = get(errors, name);
+  const hasError = !!(errors && errorMessages);
+  return (
+    <div>
+      <Input2 name={name} {...props} {...(register && register(name, rules))} />
+    </div>
+  );
+};
+
+const Input2 = forwardRef<HTMLInputElement, InputProps2>(function Input2(
+  { ...rest }: InputProps2,
+  ref: any
+) {
+  return <input ref={ref} {...rest} />;
+});
 type InputProps = {} & ComponentProps<"input">;
 const Input = forwardRef(function Input({ ...rest }: InputProps, ref: any) {
   return <input ref={ref} {...rest} />;

@@ -22,9 +22,30 @@ const ModalUncontrolledMemo = memo(ModalUncontrolled);
 //   })
 //   .required();
 function Home() {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
   return (
     <>
       <SignInForm></SignInForm>
+      {/* <ComponentA>
+      <ComponentB>
+      <ComponentC>
+      <button onClick={() => setIsOpenMenu(true)}>Open menu</button>
+      </ComponentC>
+      </ComponentB>
+      </ComponentA> */}
+      {/*
+        {
+          type: 'input'
+          props: {},
+          children: [
+            {
+              type:
+              props:
+              children: []
+            }
+          ]
+        }
+      */}
     </>
   );
 }
