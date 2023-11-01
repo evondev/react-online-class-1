@@ -183,3 +183,11 @@ const MyComponent = forwardRef(function MyComponent(props, ref) {});
 - Tức là hook do chúng ta tự tạo ra với mục đích tùy logic
 - Quy chuẩn đặt tên của custom hook bắt buộc phải bắt đầu bằng từ use ví dụ `useToggle` `useOnChange`...
 - Thường viết custom hook để tách logic ra khỏi component cho dễ quản lý
+
+# Component patterns
+
+- **Props drilling**: là 1 pattern thông dụng trong React nói vê vấn đề truyền props từ cha xuống con, từ con xuống cháu...-> có dùng trong trường hợp chỉ truyền xuống 1 cấp, nếu nhiều cấp thì nên dùng context, global state như redux hoặc zustand
+- **Lifting state-up**: Đưa các state từ con lên cha gần nhất, mục đích là chia sẻ state giữa các components với nhau
+- HOC(High Order Component):
+- Render props:
+- Custom hooks

@@ -1,97 +1,79 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
-import Toggle from "@/components/toggle/Toggle";
-import { useDebounce, useInputChange, useToggle } from "@/hooks";
-import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 
-function Home() {
-  const { value, toggleValue } = useToggle(true);
-  const { value: filter, toggleValue: toggleFilter } = useToggle(false);
-  const { value: displayPost, toggleValue: toggleDisplayPost } =
-    useToggle(false);
-  const [formValues, setFormValues] = useState({
-    emailAddress: "",
-  });
-  const handleInputChange = useInputChange(formValues, setFormValues);
-  const [query, setQuery] = useState("");
-  const handleChangeQuery = (e: ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-  };
-  const queryDebounce = useDebounce<string>(query, 5000);
+import useToggle from "@/patterns/custom-hooks";
+import TableData from "@/patterns/render-props";
+
+export default function Page() {
+  // const [userInfo, setUserInfo] = useState({
+  //   name: "evondev",
+  //   job: "Frontend Developer",
+  // });
+
   return (
     <div>
-      <Toggle value={value} onClick={toggleValue}></Toggle> Status
-      <Toggle value={filter} onClick={toggleFilter}></Toggle> Filter
-      <button onClick={() => toggleDisplayPost(true)}>Show post</button>
-      {displayPost && <div>Your post here</div>}
-      <div className="flex items-center max-w-lg p-3 m-5 bg-gray-100 rounded-lg gap-x-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="flex-shrink-0 w-6 h-6 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-        <div className="w-full">
-          <input
-            type="text"
-            className="w-full text-sm font-medium bg-transparent outline-none"
-            placeholder="Your Email"
-            value={formValues.emailAddress}
-            name={"emailAddress"}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="flex items-center max-w-lg p-3 m-5 bg-gray-100 rounded-lg gap-x-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="flex-shrink-0 w-6 h-6 text-blue-500"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-        <div className="w-full">
-          <input
-            type="text"
-            className="w-full text-sm font-medium bg-transparent outline-none"
-            placeholder="Enter your query"
-            name={"query"}
-            onChange={handleChangeQuery}
-          />
-        </div>
-      </div>
+      <Page2>
+        <VeryExpensiveComponent></VeryExpensiveComponent>
+      </Page2>
+    </div>
+  );
+}
+function Page2({ children }: { children?: React.ReactNode }) {
+  return (
+    <div>
+      <ButtonToggle></ButtonToggle>
+      <TableData>
+        {({ isOpen, setIsOpen }) => (
+          <>
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              className={`p-3 text-white rounded-lg ${
+                isOpen ? "bg-pink-500" : "bg-blue-500"
+              }`}
+            >
+              Toggle purple
+            </button>
+            <div className="mb-5"></div>
+            {isOpen && <div className="p-5 bg-purple-400 rounded-md"></div>}
+          </>
+        )}
+      </TableData>
+      {children}
     </div>
   );
 }
 
+function ButtonToggle() {
+  const { isOpen: isOpen2, setIsOpen: setIsOpen2 } = useToggle();
 
-const Input = React.forwardRef(function Input(
-  props: any,
-  ref: React.LegacyRef<HTMLInputElement> | undefined
-) {
   return (
-    <input
-      type="text"
-      placeholder="Default placeholder"
-      className="p-3 border border-gray-200 rounded-lg outline-none focus:border-blue-500"
-      ref={ref}
-      defaultValue={props.value}
-      onChange={(e) => props.onChange(e.target.value)}
-    />
+    <>
+      <button
+        type="button"
+        onClick={() => setIsOpen2(!isOpen2)}
+        className={`p-3 text-white rounded-lg ${
+          isOpen2 ? "bg-pink-500" : "bg-blue-500"
+        }`}
+      >
+        Toggle purple
+      </button>
+      <div className="mb-5"></div>
+      {isOpen2 && <div className="p-5 bg-purple-400 rounded-md"></div>}
+    </>
   );
-});
-export default Home;
+}
+
+function VeryExpensiveComponent() {
+  console.log("render expensive component");
+  // render 1000 rows with for loop
+  const rows = [];
+  for (let i = 0; i < 10000; i++) {
+    rows.push(
+      <div key={i} className="p-2 my-2 bg-orange-300">
+        Row {i}
+      </div>
+    );
+  }
+  return <div>{rows}</div>;
+}
