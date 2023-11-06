@@ -1,7 +1,7 @@
-import { QueryClient } from "@tanstack/react-query";
-import "./globals.scss";
+import ThemeContextProvider from "@/patterns/context/ThemeContextProvider";
 import type { Metadata } from "next";
-import { Inter, Epilogue } from "next/font/google";
+import { Epilogue } from "next/font/google";
+import "./globals.scss";
 const inter = Epilogue({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ThemeContextProvider>
+      <html lang="en">
+        <body className={`${inter.className} bg-white dark:bg-slate-950`}>
+          {children}
+        </body>
+      </html>
+    </ThemeContextProvider>
   );
 }

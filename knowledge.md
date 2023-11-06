@@ -187,7 +187,9 @@ const MyComponent = forwardRef(function MyComponent(props, ref) {});
 # Component patterns
 
 - **Props drilling**: là 1 pattern thông dụng trong React nói vê vấn đề truyền props từ cha xuống con, từ con xuống cháu...-> có dùng trong trường hợp chỉ truyền xuống 1 cấp, nếu nhiều cấp thì nên dùng context, global state như redux hoặc zustand
+- React composition: Bất kỳ 1 component có thể render component khác gọi là composition
 - **Lifting state-up**: Đưa các state từ con lên cha gần nhất, mục đích là chia sẻ state giữa các components với nhau
 - HOC(High Order Component):
 - Render props:
 - Custom hooks
+- Context:
