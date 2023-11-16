@@ -193,3 +193,7 @@ const MyComponent = forwardRef(function MyComponent(props, ref) {});
 - Render props:
 - Custom hooks
 - Context:
+
+# Zustand
+
+- https://github.com/pmndrs/zustand/blob/main/docs/guides/typescript.md

@@ -17,9 +17,7 @@ export default function RootLayout({
   return (
     <ThemeContextProvider>
       <html lang="en">
-        <body className={`${inter.className} bg-white dark:bg-slate-950`}>
-          {children}
-        </body>
+        <body className={`${inter.className} bg-white`}>{children}</body>
       </html>
     </ThemeContextProvider>
   );

@@ -101,9 +101,9 @@
 
 # State Management
 
+- Zustand
 - Redux toolkit
 - Redux Thunk
-- Zustand
 
 # Performance Optimization
 
@@ -116,18 +116,3 @@
 # Testing
 
 - React-testing-library
-
-# NextJS
-
-- Router
-- next/image
-- next/link
-- next/head
-- next/document
-- next/app
-- next/font
-- routing
-- Fetching
-- CSR, SSR
-- Dynamic import
-- getStaticProps vs getServerSideProps

@@ -7,7 +7,7 @@ module.exports = {
     "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/patterns/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  // darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
