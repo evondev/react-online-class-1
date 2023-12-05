@@ -107,11 +107,11 @@
 
 # Performance Optimization
 
-- Tất tần tật về re-renders
+- React reconciliation: arrays, keys, type, props, children, function(Component)
+- Key: random key, index, from data
 - useMemo, useCallback, React.memo
-- React reconciliation
+- Tất tần tật về re-renders
 - Tối ưu context
-- How JSX works in React and Key
 
 # Testing
 
