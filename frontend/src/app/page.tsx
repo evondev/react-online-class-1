@@ -1,14 +1,15 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
+import ReRenders from "@/performance/ReRenders";
 import { useGlobalStore } from "@/store";
 import { twMerge } from "tailwind-merge";
 
 export default function Page() {
   return (
     <div>
-      <Header></Header>
-      <Navigation></Navigation>
+      {/* <Reconciliation></Reconciliation> */}
+      <ReRenders></ReRenders>
     </div>
   );
 }

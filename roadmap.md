@@ -108,10 +108,11 @@
 # Performance Optimization
 
 - React reconciliation: arrays, keys, type, props, children, function(Component)
-- Key: random key, index, from data
+- Key: random key, index, from data: uuid
 - useMemo, useCallback, React.memo
 - Tất tần tật về re-renders
 - Tối ưu context
+- Zed Mono Oblique
 
 # Testing
 
